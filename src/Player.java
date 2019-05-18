@@ -4,7 +4,7 @@ public class Player {
     private Dino dino = new Dino();
     private boolean gameOver = false;
     private float score = 0;
-    Brain brain;
+    private Brain brain;
 
     public Player(){
         brain = new Brain();

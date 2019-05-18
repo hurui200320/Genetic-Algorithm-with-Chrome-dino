@@ -9,8 +9,8 @@ import java.util.concurrent.Executors;
 public class Game {
     //Game
     public static final float groundHeight = 50f;
-    public static final float groundBaseSpeed = 10f; // min 8.7
-    public static final float deltaT = 1.1547f;// according to current setting(g = -1.5f), deltaT^2 <= 4/3, max 1.1547
+    public static final float groundBaseSpeed = 10f;
+    public static final float deltaT = 1.2f;
     public static final float obstaclesDistance = Dino.dinoWidth + 180f + 550f;
     public static final float minDistance = Dino.dinoWidth + 180f + 310f;
     public static final float gaussSigma = 100f; // 3sigma in gauss distribution
@@ -134,10 +134,6 @@ public class Game {
     }
 
     public Player selectParent(){
-        float fitnessSum = 0;
-        for(int i = 0; i < players.length; i++){
-            fitnessSum += players[i].getScore();
-        }
         float rand = parent.random(fitnessSum);
 
         float runningSum = 0;
@@ -154,12 +150,14 @@ public class Game {
         return players[0];
     }
 
+    private float fitnessSum;
     public float naturalSelection(){
         Player[] newPlayers = new Player[players.length];//next gen
 
         //find best one
         float max = players[0].getScore();
         for (int i = 1; i< players.length; i++) {
+            fitnessSum += players[i].getScore();
             if (players[i].getScore() > max) {
                 max = players[i].getScore();
             }
