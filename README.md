@@ -1,7 +1,7 @@
 # Genetic-Algorithm-with-Chrome-dino
 A genetic algorithm implement with chrome's dino game.
 
-中文版介绍请参见[此处](https://www.skyblond.info/archives/2019/05/18/615)。English version is translated from Chinese version.
+中文版介绍请参见[此处](https://skyblond.info/archives/615.html)。English version is translated from Chinese version.
 
 
 
